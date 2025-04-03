@@ -6,6 +6,7 @@
   justify-content: space-between;
   padding: 2rem min(5vw, 5rem);
   align-items: center;
+  background: red;
 }
 
 .navbar-links {

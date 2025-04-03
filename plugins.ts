@@ -16,6 +16,15 @@ import image from "https://deno.land/x/lume_markdown_plugins@v0.8.0/image.ts";
 import footnotes from "https://deno.land/x/lume_markdown_plugins@v0.8.0/footnotes.ts";
 import { alert } from "npm:@mdit/plugin-alert@0.14.0";
 
+import picture from "lume/plugins/picture.ts";
+import transformImages from "lume/plugins/transform_images.ts";
+import wikilinks from "https://deno.land/x/lume_markdown_plugins/wikilinks.ts";
+import mdItObsidianCallouts from "npm:markdown-it-obsidian-callouts";
+import obsidianImages from "npm:markdown-it-obsidian-images";
+import markdownItContainer from "npm:markdown-it-container";
+import tailwindcss from "lume/plugins/tailwindcss.ts";
+import typography from "npm:@tailwindcss/typography";
+
 import "lume/types.ts";
 
 export interface Options {
@@ -44,7 +53,29 @@ export default function (userOptions?: Options) {
   const options = merge(defaults, userOptions);
 
   return (site: Lume.Site) => {
-    site.use(postcss())
+    site.use(tailwindcss({
+      /* Options */
+      // Extract the classes from HTML and JSX files
+      extensions: [".html", ".jsx"],
+
+      // Your Tailwind options, like the theme colors and fonts
+      options: {
+        theme: {
+          colors: {
+            blue: "#1fb6ff",
+            purple: "#7e5bef",
+            pink: "#ff49db",
+          },
+          fontFamily: {
+            sans: ["Graphik", "sans-serif"],
+            serif: ["Canela", "serif"],
+            display: ["Carloti", "serif"]
+          },
+        },
+        plugins: [typography],
+      },
+      }))
+      .use(postcss())
       .use(basePath())
       .use(toc())
       .use(prism(options.prism))
@@ -59,6 +90,10 @@ export default function (userOptions?: Options) {
       .use(pagefind(options.pagefind))
       .use(sitemap())
       .use(feed(options.feed))
+      //new
+      .use(wikilinks())
+      .use(picture(/* Options */))
+      .use(transformImages())
       .copy("fonts")
       .copy("js")
       .copy("favicon.png")
@@ -74,6 +109,9 @@ export default function (userOptions?: Options) {
 
     // Alert plugin
     site.hooks.addMarkdownItPlugin(alert);
+    site.hooks.addMarkdownItPlugin(markdownItContainer, name );
+    site.hooks.addMarkdownItPlugin(mdItObsidianCallouts);
+    site.hooks.addMarkdownItPlugin(obsidianImages);
 
     // Mastodon comment system
     site.remoteFile(

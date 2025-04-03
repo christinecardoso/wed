@@ -20,8 +20,6 @@ export default function (options: Partial<Options> = {}) {
       "_includes/css/badge.css",
       "_includes/css/variables.css",
       "_includes/css/search.css",
-      "_includes/css/tailwind.css",
-      "_includes/css/theme.css",
       "_includes/css/comments.css",
       "_includes/layouts/archive_result.vto",
       "_includes/layouts/archive.vto",

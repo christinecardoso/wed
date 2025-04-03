@@ -1,0 +1,23 @@
+HERO!
+
+<div class="post-details">
+  <div class="post-tags">
+    {{ for tag of tags }}
+      {{ set page = search.page(`type=tag tag="${tag}"`) }}
+
+      {{ if page }}
+        <a data-pagefind-filter="filter" class="badge" href="{{ page.url }}">{{ tag }}</a>
+      {{ /if }}
+    {{ /for }}
+  </div>
+</div>
+
+<div class="post-children">
+  {{ for child of children }}
+    {{ set page2 = search.page(`type=page title="${child}"`) }}
+
+    {{ if page2 }}
+      <a data-pagefind-filter="filter" class="badge" href="{{ page2.url }}">{{ child }}</a>
+    {{ /if }}
+  {{ /for }}
+</div>

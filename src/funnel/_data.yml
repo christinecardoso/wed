@@ -1,0 +1,5 @@
+type: funnel
+# layout: layouts/service.vto
+template: "templates/block-details.vto"
+metas:
+  title: "=title"

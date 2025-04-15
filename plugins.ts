@@ -24,6 +24,7 @@ import obsidianImages from "npm:markdown-it-obsidian-images";
 import markdownItContainer from "npm:markdown-it-container";
 import tailwindcss from "lume/plugins/tailwindcss.ts";
 import typography from "npm:@tailwindcss/typography";
+import simpleIcons from "https://deno.land/x/lume_icon_plugins@v0.1.1/simpleicons.ts";
 
 import "lume/types.ts";
 
@@ -93,6 +94,7 @@ export default function (userOptions?: Options) {
       .use(wikilinks())
       .use(picture(/* Options */))
       .use(transformImages())
+      .use(simpleIcons())
       .add("fonts")
       .add([".css"])
       .add("js")

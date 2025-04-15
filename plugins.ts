@@ -90,14 +90,14 @@ export default function (userOptions?: Options) {
       .use(pagefind(options.pagefind))
       .use(sitemap())
       .use(feed(options.feed))
-      //new
       .use(wikilinks())
       .use(picture(/* Options */))
       .use(transformImages())
-      .copy("fonts")
-      .copy("js")
-      .copy("favicon.png")
-      .copy("uploads")
+      .add("fonts")
+      .add([".css"])
+      .add("js")
+      .add("favicon.png")
+      .add("uploads")
       .mergeKey("extra_head", "stringArray")
       .preprocess([".md"], (pages) => {
         for (const page of pages) {

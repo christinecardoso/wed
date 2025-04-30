@@ -4,6 +4,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ metas.description || 'Your default site description' }}">
+    <meta name="robots" content="index, follow">
     <title>{{ it.title || metas.title }} - {{ metas.site }}</title>
 
     <meta name="supported-color-schemes" content="light dark">
@@ -65,6 +67,32 @@
     <main class="{{ it.bodyClass }}">
       {{ content }}
     </main>
+
+    <!-- Footer Section -->
+    <footer class="footer text-sm py-6 mt-12">
+      <div class="footer-content max-w-4xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-center sm:text-left">
+          &copy; {{ metas.site }} {{ new Date().getFullYear() }}. All rights reserved.
+        </p>
+        <div class="social-links flex gap-4 ">
+          {{- for link of it.socialLinks }}
+            <a 
+              class="inline-flex items-center gap-1 transition" 
+              href="{{ link.href }}" 
+              aria-label="Follow us on {{ link.label }}" 
+              target="_blank"  
+              rel="noopener noreferrer"
+            >
+            <img
+              src="{{ link.icon.name |> icon(link.icon.collection, link.icon.variant) }}"
+              class="h-5 w-5 inline-block"
+              alt="{{ link.label }}"
+            />
+            </a>
+          {{ /for }}
+        </div>
+      </div>
+    </footer>
 
     <!-- Current page: {{ url }} -->
   </body>

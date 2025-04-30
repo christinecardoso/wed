@@ -2,15 +2,38 @@ lang: en
 
 home:
   welcome: Hello, I am a person that writes stuff.
+blog:
+  welcome: Welcome to the Blog.
 
 menu_links: []
 extra_head: []
 
 # Metas plugin https://lume.land/plugins/metas/#description
 metas:
-  site: Blog name
+  site: Site name
   description: General description of the blog
   title: "=title"
   image: "=image"
   twitter: "@username"
   lang: en
+
+# Social Links
+socialLinks:
+  - href: "https://facebook.com/yourpage"
+    icon:
+      collection: fontawesome
+      name: facebook
+      variant: brands
+    label: "Facebook"
+  - href: "https://twitter.com/yourpage"
+    icon:
+      collection: fontawesome
+      variant: brands
+      name: twitter
+    label: "Twitter"
+  - href: "https://instagram.com/yourpage"
+    icon:
+      collection: fontawesome
+      variant: brands
+      name: instagram
+    label: "Instagram"

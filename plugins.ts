@@ -23,6 +23,7 @@ import mdItObsidianCallouts from "npm:markdown-it-obsidian-callouts";
 import obsidianImages from "npm:markdown-it-obsidian-images";
 import markdownItContainer from "npm:markdown-it-container";
 import tailwindcss from "lume/plugins/tailwindcss.ts";
+import icons from "lume/plugins/icons.ts";
 import typography from "npm:@tailwindcss/typography";
 import simpleIcons from "https://deno.land/x/lume_icon_plugins@v0.1.1/simpleicons.ts";
 
@@ -54,27 +55,28 @@ export default function (userOptions?: Options) {
   const options = merge(defaults, userOptions);
 
   return (site: Lume.Site) => {
-    site.use(tailwindcss({
-      /* Options */
-      // Extract the classes from HTML and JSX files
-      extensions: [".html", ".jsx"],
+    site.use(icons())
+      .use(tailwindcss({
+        /* Options */
+        // Extract the classes from HTML and JSX files
+        extensions: [".html", ".jsx"],
 
-      // Your Tailwind options, like the theme colors and fonts
-      options: {
-        theme: {
-          colors: {
-            blue: "#1fb6ff",
-            purple: "#7e5bef",
-            pink: "#ff49db",
+        // Your Tailwind options, like the theme colors and fonts
+        options: {
+          theme: {
+            colors: {
+              blue: "#1fb6ff",
+              purple: "#7e5bef",
+              pink: "#ff49db",
+            },
+            fontFamily: {
+              sans: ["Graphik", "sans-serif"],
+              serif: ["Canela", "serif"],
+              display: ["Carloti", "serif"]
+            },
           },
-          fontFamily: {
-            sans: ["Graphik", "sans-serif"],
-            serif: ["Canela", "serif"],
-            display: ["Carloti", "serif"]
-          },
+          plugins: [typography],
         },
-        plugins: [typography],
-      },
       }))
       .use(postcss())
       .use(basePath())

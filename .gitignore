@@ -4,3 +4,4 @@ _site
 _bin
 deno.lock
 .DS_Store
+.obsidian

@@ -1,0 +1,17 @@
+<div class="social-links flex gap-8 md:gap-4">
+  {{- for link of it.socialLinks }}
+    <a 
+      class="inline-flex items-center gap-1 transition" 
+      href="{{ link.href }}" 
+      aria-label="Follow us on {{ link.label }}" 
+      target="_blank"  
+      rel="noopener noreferrer"
+    >
+    <img
+      inline src="{{ link.icon.name |> icon(link.icon.collection, link.icon.variant) }}"
+      class="h-10 w-10 inline-block"
+      alt="{{ link.label }}"
+    />
+    </a>
+  {{ /for }}
+</div>

@@ -1,0 +1,34 @@
+<div class="footer-nav grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:max-w-2xl lg:max-w-6xl mx-auto px-6 mb-12">
+
+  {{ for group of ["Explore", "Patients", "Join", "Contact"] }}
+    <div class="mb-5 lg:mb-0">
+      <h4 class="font-semibold mb-3 text-leaf/100 text-base tracking-wide uppercase">{{ group }}</h4>
+      <ul class="space-y-1 text-ivory">
+
+        <!-- Internal Pages -->
+        {{ for entry of search.pages("menu.footer=true", "menu.order") }}
+          {{ if entry.menuGroup == group }}
+            <li>
+              <a href="{{ entry.url }}" class="leading-6 block py-1 w-full text-xl lg:text-xl  hover:text-herbal-mint transition hover:underline hover:underline-offset-[7px]">
+                {{ entry.menu.title || entry.title }}
+              </a>
+            </li>
+          {{ /if }}
+        {{ /for }}
+
+        <!-- External Links from _data.yml -->
+        {{ for link of footerLinks[group] || [] }}
+          <li>
+            <a 
+              href="{{ link.href }}" 
+              {{ if link.target }} target="{{ link.target }}" rel="noopener noreferrer"{{ /if }}
+              class="leading-6 py-1 block w-full text-xl lg:text-xl hover:text-herbal-mint transition hover:underline hover:underline-offset-[7px]"
+            >
+              {{ link.text }}
+            </a>
+          </li>
+        {{ /for }}
+      </ul>
+    </div>
+  {{ /for }}
+</div>

@@ -1,0 +1,23 @@
+{{ set total = testimonials.length }}
+{{ set third = Math.ceil(total / 3) }}
+
+<div class="testimonial-grid-alt">
+
+  {{ for i of [0, 1, 2] }}
+    <div class="flex flex-col gap-6">
+      {{ set start = i * third }}
+      {{ set end = (i + 1) * third }}
+      {{ for t of testimonials.slice(start, end) }}
+        <div class="testimonial-card">
+          <div class="stars flex text-yellow-400">
+            {{ for _ of [1, 2, 3, 4, 5] }}
+              <span class="material-icons">★</span>
+            {{ /for }}
+          </div>
+          <p class="quote">“{{ t.quote }}”</p>
+          <p class="source">— {{ t.source }}</p>
+        </div>
+      {{ /for }}
+    </div>
+  {{ /for }}
+</div>

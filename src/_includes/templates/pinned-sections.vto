@@ -1,0 +1,48 @@
+<style>
+  .pin-container {
+    position: relative;
+    height: var(--pin-height, 100vh);
+  }
+
+  .pin-sticky {
+    position: sticky;
+    top: 0;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+
+  .pin-inner {
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .pin-hidden {
+    opacity: 0.2;
+    transform: translateY(30px);
+  }
+</style>
+
+{{ for section of sections }}
+  {{ set pinHeight = section.duration ? section.duration : 200 }}
+
+  <div
+    x-data="pinnedSection"
+    x-init="init"
+    class="pin-container"
+    style="--pin-height: {{ pinHeight }}vh"
+  >
+    <div class="pin-sticky">
+      <div
+        class="pin-inner max-w-4xl px-6 text-center"
+        :class="{ 'pin-hidden': !visible }"
+      >
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">
+          {{ section.title }}
+        </h2>
+        <p class="text-lg md:text-xl text-gray-700">{{ section.body }}</p>
+      </div>
+    </div>
+  </div>
+{{ /for }}

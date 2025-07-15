@@ -1,23 +1,27 @@
-HERO!
+<section class="hero py-16 px-6 text-center bg-white text-gray-900">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center">
+     <img class="mx-auto rounded-full border border-line h-[72px]" src="{{ image }}"
+       sizes="(min-width: 640px) 18rem, 11rem"
+       transform-images="webp jpg">
+       <a class="px-3 py-2 rounded-lg font-semibold border border-line transition bg-white">15+ Years Experience</a>
+     </div>
+    <h1 class="text-4xl md:text-5xl font-thin font-display mb-4">
+      {{ headline }}
+    </h1>
+    <p class="text-lg md:text-xl mb-8">
+      {{ subhead }}
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
 
-<div class="post-details">
-  <div class="post-tags">
-    {{ for tag of tags }}
-      {{ set page = search.page(`type=tag tag="${tag}"`) }}
+      {{ for option of cta_options }}
+        <a href="{{ option.link }}" class="btn-cta"
+          {{ if option.target }}target="{{ option.target }}"{{ /if }}
+        >
+          {{ option.label }} {{ if option.target }} >> {{ /if }}
+        </a>
+      {{ /for }}
 
-      {{ if page }}
-        <a data-pagefind-filter="filter" class="badge" href="{{ page.url }}">{{ tag }}</a>
-      {{ /if }}
-    {{ /for }}
+    </div>
   </div>
-</div>
-
-<div class="post-children">
-  {{ for child of children }}
-    {{ set page2 = search.page(`type=page title="${child}"`) }}
-
-    {{ if page2 }}
-      <a data-pagefind-filter="filter" class="badge" href="{{ page2.url }}">{{ child }}</a>
-    {{ /if }}
-  {{ /for }}
-</div>
+</section>

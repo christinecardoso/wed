@@ -1,7 +1,8 @@
 posts/*.md
-src/uploads
 _site
 _bin
 deno.lock
 .DS_Store
 .obsidian
+src/posts/posts
+_cache

@@ -20,79 +20,22 @@
     <script src="/js/main.js" type="module"></script>
     {{ it.extra_head?.join("\n") }}
   </head>
-  <body>
-    <nav class="navbar">
-      <a href="/" class="navbar-home">
-        {{ if it.logo }}
-          {{ it.logo }}
-        {{ else }}
-          <strong>{{ metas.site }}</strong>
-        {{ /if }}
-      </a>
-
-      <ul class="navbar-links">
-      {{- for entry of search.pages("menu.visible=true", "menu.order") }}
-        <li>
-          <a href="{{ entry.url }}"{{ if entry.url == url }} aria-current="page"{{ /if }}>
-            {{ entry.menu.title || entry.title }}
-          </a>
-        </li>
-      {{ /for }}
-      {{- for link of it.menu_links }}
-        <li>
-          <a href="{{ link.href }}"{{ if link.target }} target="{{link.target}}"{{ /if }}>
-            {{ link.text }}
-          </a>
-        </li>
-      {{ /for }}
-      <li>
-        <script>
-          let theme = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light");
-          document.documentElement.dataset.theme = theme;
-          function changeTheme() {
-            theme = theme === "dark" ? "light" : "dark";
-            localStorage.setItem("theme", theme);
-            document.documentElement.dataset.theme = theme;
-          }
-        </script>
-        <button class="button" onclick="changeTheme()">
-          <span class="icon">◐</span>
-        </button>
-      </li>
-      </ul>
-    </nav>
+  <body class="{{ it.bodyClass }} body-{{ it.title |> slugify }}">
+    {{ include "partials/nav.vto" }}
 
     <main class="{{ it.bodyClass }}">
       {{ content }}
     </main>
 
     <!-- Footer Section -->
-    <footer class="footer text-sm py-6 mt-12">
-      <div class="footer-content max-w-4xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p class="text-center sm:text-left">
-          &copy; {{ metas.site }} {{ new Date().getFullYear() }}. All rights reserved.
-        </p>
-        <div class="social-links flex gap-4 ">
-          {{- for link of it.socialLinks }}
-            <a 
-              class="inline-flex items-center gap-1 transition" 
-              href="{{ link.href }}" 
-              aria-label="Follow us on {{ link.label }}" 
-              target="_blank"  
-              rel="noopener noreferrer"
-            >
-            <img
-              src="{{ link.icon.name |> icon(link.icon.collection, link.icon.variant) }}"
-              class="h-5 w-5 inline-block"
-              alt="{{ link.label }}"
-            />
-            </a>
-          {{ /for }}
-        </div>
-      </div>
+    <footer class="footer footer-page text-sm py-6">
+      {{ include "partials/footerNav.vto" }}
+      {{ include "partials/footerBar.vto" }}
     </footer>
+
+    <script type="application/ld+json">
+      {{ JSON.stringify(schema, null, 3) }}
+    </script>
 
     <!-- Current page: {{ url }} -->
   </body>

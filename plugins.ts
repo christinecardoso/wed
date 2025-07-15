@@ -11,21 +11,25 @@ import sitemap from "lume/plugins/sitemap.ts";
 import feed, { Options as FeedOptions } from "lume/plugins/feed.ts";
 import readingInfo from "lume/plugins/reading_info.ts";
 import { merge } from "lume/core/utils/object.ts";
-import toc from "https://deno.land/x/lume_markdown_plugins@v0.8.0/toc.ts";
-import image from "https://deno.land/x/lume_markdown_plugins@v0.8.0/image.ts";
-import footnotes from "https://deno.land/x/lume_markdown_plugins@v0.8.0/footnotes.ts";
-import { alert } from "npm:@mdit/plugin-alert@0.14.0";
+import toc from "https://deno.land/x/lume_markdown_plugins@v0.9.0/toc.ts";
+import image from "https://deno.land/x/lume_markdown_plugins@v0.9.0/image.ts";
+import footnotes from "https://deno.land/x/lume_markdown_plugins@v0.9.0/footnotes.ts";
+import { alert } from "npm:@mdit/plugin-alert@0.22.0";
 
 import picture from "lume/plugins/picture.ts";
 import transformImages from "lume/plugins/transform_images.ts";
 import wikilinks from "https://deno.land/x/lume_markdown_plugins/wikilinks.ts";
+import markdownItContainer from "npm:markdown-it-container";
 import mdItObsidianCallouts from "npm:markdown-it-obsidian-callouts";
 import obsidianImages from "npm:markdown-it-obsidian-images";
-import markdownItContainer from "npm:markdown-it-container";
+import attrs from "npm:markdown-it-attrs";
 import tailwindcss from "lume/plugins/tailwindcss.ts";
 import icons from "lume/plugins/icons.ts";
 import typography from "npm:@tailwindcss/typography";
 import simpleIcons from "https://deno.land/x/lume_icon_plugins@v0.1.1/simpleicons.ts";
+import markdownItAnchor from 'npm:markdown-it-anchor';
+import svgo from "lume/plugins/svgo.ts";
+import inline from "lume/plugins/inline.ts";
 
 import "lume/types.ts";
 
@@ -95,8 +99,24 @@ export default function (userOptions?: Options) {
       .use(feed(options.feed))
       .use(wikilinks())
       .use(picture(/* Options */))
-      .use(transformImages())
+      .use(transformImages({
+        extensions: [".jpg", ".png", ".webp"], // exclude .gif
+        include: ["**/*.jpg", "**/*.png"], // Apply plugin to these patterns
+        options: {
+          // Specify output formats and sizes
+          formats: ["webp", "avif", "jpg"],
+          sizes: [640, 1080],  // Define the sizes you want to generate
+        },
+        functions: {
+          resizeBlur(img, size) {
+            img.resize(size, size);
+            img.blur(10);
+          },
+        },
+      }))
       .use(simpleIcons())
+      .use(svgo())
+      .use(inline())
       .add("fonts")
       .add([".css"])
       .add("js")
@@ -113,9 +133,13 @@ export default function (userOptions?: Options) {
 
     // Alert plugin
     site.hooks.addMarkdownItPlugin(alert);
-    site.hooks.addMarkdownItPlugin(markdownItContainer, name );
     site.hooks.addMarkdownItPlugin(mdItObsidianCallouts);
     site.hooks.addMarkdownItPlugin(obsidianImages);
+    site.hooks.addMarkdownItPlugin(attrs); // for {.class} support
+    for (const type of ["div", "tip", "warning", "info", "note"]) {
+      site.hooks.addMarkdownItPlugin(markdownItContainer, type);
+    }
+    site.hooks.addMarkdownItPlugin(markdownItAnchor);
 
     // Mastodon comment system
     site.remoteFile(

@@ -3,13 +3,31 @@ layout: layouts/base.vto
 bodyClass: body-tag
 ---
 <article class="post" data-pagefind-body>
-  <header class="post-header">
+  <header class="post-header relative">
     <h1 class="post-title">{{ it.title }}</h1>
 
     {{ it.subtitle |> md }}
   </header>
 
-  <div class="post-body">
+  <div class="post-body z-2">
     {{ content }}
   </div>
 </article>
+
+{{ if it.accordionItems }}
+  {{ include "templates/accordion.vto" { items: it.accordionItems } }}
+{{ /if }}
+
+{{ if it.tabs }}
+  {{ include "templates/tabs.vto" { 
+    tabs: it.tabs 
+  } }}
+{{ /if }}
+
+{{ if it.testimonials }}
+  {{ include "templates/testimonial-grid.vto" { 
+    testimonials: it.testimonials 
+  } }}
+{{ /if }}
+
+{{ include "partials/footerPanel.vto" }}

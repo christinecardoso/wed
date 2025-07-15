@@ -8,6 +8,57 @@ blog:
 menu_links: []
 extra_head: []
 
+phone: 561-532-5501
+fax: 561-896-0472
+email: mshirley@wholehh.com
+
+footer:
+  cta: Still have questions?
+  tagline: Here are more ways to explore how we can help you heal.
+  ctaLinks: 
+  - href: '../membership'
+    text: Learn about Membership
+    class: btn btn--solid
+  - href: 'mailto:mshirley@wholehh.com'
+    text: Email Dr. Shirley
+    class: btn btn--outline
+
+footerLinks:
+  Company:
+    - text: "Privacy Policy"
+      href: "/privacy"
+    - text: "Terms of Service"
+      href: "/terms"
+  Patients:
+    - text: "Patient Portal"
+      href: 'https://patientportal.emedpractice.com/patientportal/#/login'
+      target: "_blank"
+    - text: "Write a Google Review"
+      href: "https://g.co/kgs/U67Za5M"
+      target: "_blank"
+    - text: "Write a Yelp Review"
+      href: "https://www.yelp.com/biz/whole-human-health-loxahatchee"
+      target: "_blank"
+    - text: "Write a Facebook Review"
+      href: "https://www.facebook.com/people/Whole-Human-Health/61575522466442/#"
+      target: "_blank"
+    - text: "Write a Healthline Review"
+      href: "https://care.healthline.com/find-care/provider/dr-megan-shirley-1447662150"
+      target: "_blank"
+  Contact:
+    - text: "13005 Southern Blvd STE 214, Loxahatchee, FL 33470"
+      href: "https://www.google.com/maps/dir/?api=1&destination=13005+Southern+Blvd+STE+214,+Loxahatchee,+FL+33470"
+      target: "_blank"    
+    - text: "(561) 532-5501"
+      href: "tel:561-532-5501"
+      target: "_blank"
+    - text: "mshirley@wholehh.com"
+      href: "mailto:mshirley@wholehh.com"
+      target: "_blank"
+    - text: "Chat with Dr. Shirley"
+      href: "https://spruce.care/wholehumanhealth"
+      target: "_blank"
+
 # Metas plugin https://lume.land/plugins/metas/#description
 metas:
   site: Site name
@@ -16,6 +67,8 @@ metas:
   image: "=image"
   twitter: "@username"
   lang: en
+  generator: false
+  type: website
 
 # Social Links
 socialLinks:
@@ -37,3 +90,22 @@ socialLinks:
       variant: brands
       name: instagram
     label: "Instagram"
+
+schema:
+  "@context": "https://schema.org"
+  "@type": "MedicalOrganization"
+  name: "Base Template"
+  url: "https://wholehh.com"
+  sameAs:
+  - "https://www.facebook.com/people/Whole-Human-Health/61575522466442/#"
+  - "https://www.yelp.com/biz/whole-human-health-loxahatchee"
+  - "https://g.co/kgs/U67Za5M"
+  - "https://care.healthline.com/find-care/provider/dr-megan-shirley-1447662150"
+  telephone: "+1-561-532-5501"
+  address:
+    "@type": "PostalAddress"
+    streetAddress: "13005 Southern Blvd STE 214"
+    addressLocality: "Loxahatchee"
+    addressRegion: "FL"
+    postalCode: "33470"
+    addressCountry: "US"

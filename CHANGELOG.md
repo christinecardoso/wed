@@ -6,7 +6,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this
 project adheres to [Semantic Versioning](http://semver.org/).
 
-## [0.16.0] - Unreleased
+## [0.16.1] - 2025-07-03
+### Fixed
+- menu_links added through the CMS [#39]
+- Preview the homepage while editing the settings in the CMS.
+
+## [0.16.0] - 2025-05-07
+### Added
+- Paginate the post of a tag
+- Authors in the archive page (only if more than 1 author is found).
+
 ### Changed
 - Upgrade to Lume 3.
 
@@ -264,8 +273,10 @@ First version
 [#27]: https://github.com/lumeland/theme-simple-blog/issues/27
 [#34]: https://github.com/lumeland/theme-simple-blog/issues/34
 [#35]: https://github.com/lumeland/theme-simple-blog/issues/35
+[#39]: https://github.com/lumeland/theme-simple-blog/issues/39
 
-[0.16.0]: https://github.com/lumeland/theme-simple-blog/compare/v0.15.10...HEAD
+[0.16.1]: https://github.com/lumeland/theme-simple-blog/compare/v0.16.0...v0.16.1
+[0.16.0]: https://github.com/lumeland/theme-simple-blog/compare/v0.15.10...v0.16.0
 [0.15.10]: https://github.com/lumeland/theme-simple-blog/compare/v0.15.9...v0.15.10
 [0.15.9]: https://github.com/lumeland/theme-simple-blog/compare/v0.15.8...v0.15.9
 [0.15.8]: https://github.com/lumeland/theme-simple-blog/compare/v0.15.7...v0.15.8

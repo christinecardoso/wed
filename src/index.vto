@@ -1,0 +1,31 @@
+---
+layout: layouts/base.vto
+bodyClass: body-home
+title: Home
+metas:
+  description: Homepage description for the website
+templateEngine: [vto]
+---
+
+<header class="page-header hidden">
+  <h1 class="page-title">{{ home.welcome }}</h1>
+</header>
+
+<section class="funnelList">
+  {{ for post of search.pages("type=funnel", "order url", 12) }}
+  <div class="module {{ post.title |> slugify }}">
+    <div class="wrapper">
+      {{- post.content |> md -}}
+      {{ if post.accordionItems }}
+        {{ include "templates/accordion.vto" { items: post.accordionItems } }}
+      {{ /if }}
+      {{ if post.tabs }}
+        {{ include "templates/tabs.vto" { tabs: post.tabs } }}
+      {{ /if }}
+      {{ if post.testimonials }}
+        {{ include "templates/testimonial-grid.vto" { testimonials: post.testimonials } }}
+      {{ /if }}
+    </div>
+  </div>
+{{ /for }}
+</section>

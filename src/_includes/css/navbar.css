@@ -1,23 +1,34 @@
+nav.navbarTop {
+  @apply w-full px-4 md:px-[4%] py-9 sticky md:sticky top-0 z-50 text-sm;
+  backdrop-filter: blur(5px);
+
+  &.initial {
+    @apply bg-body;
+  }
+
+  /*Prevent stacking conflict when full-screen mobile menu opens*/
+  &.mobile-open {
+    @apply z-[150];
+  }
+}
+
 .navbar {
-  display: flex;
-  flex-wrap: wrap;
+  @apply bg-body flex flex-wrap content-between items-center;
+
   column-gap: 1rem;
   row-gap: 1rem;
-  justify-content: space-between;
   padding: 2rem min(5vw, 5rem);
-  align-items: center;
-  background: red;
+  
+  a > strong {
+    @apply uppercase;
+  }
 }
 
 .navbar-links {
-  padding: 0;
-  margin: 0;
+  @apply flex flex-wrap p-0 m-0 items-center;
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
   column-gap: 1.5rem;
-  font: var(--font-ui-bold);
-  align-items: center;
+/*  font: var(--font-ui-bold);*/
 
   & [aria-current="page"] {
     text-decoration: none;
@@ -25,12 +36,16 @@
 }
 
 .navbar-search {
+  @apply flex ml-auto items-center;
   padding: 0 1em;
-  margin-left: auto;
-  display: flex;
-  align-items: center;
 }
 
 .navbar-home {
   text-decoration: none;
+  @apply text-base hover:text-base/60;
+
+  strong {
+    @apply font-brand leading-4 uppercase font-bold text-lg;
+  }
+
 }

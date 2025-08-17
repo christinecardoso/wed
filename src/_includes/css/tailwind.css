@@ -21,6 +21,11 @@
   --font-jetset: Montserrat, Helvetica, Arial, Lucida, sans-serif;
   --font-sans: Inter, Helvetica, Arial, Lucida, sans-serif;
   --font-brand:"Mulish", sans-serif;
+  --font-geometric:"Work Sans", sans-serif;
+  --font-warm:"Lora", serif;
+  --font-serif: var(--font-warm);
+  --font-heading: var(--font-geometric);
+  --default-font-family:var(--font-geometric);
 
   /* Breakpoints */
   --breakpoint-3xl: 120rem;

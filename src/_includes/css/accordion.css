@@ -1,0 +1,62 @@
+.accordion {
+  @apply divide-y pb-15;
+}
+
+.accordion-item {
+  @apply border-b border-base/30;
+}
+
+.accordion-button {
+  @apply w-full flex justify-between items-center py-4 text-left font-medium text-gray-900 transition-colors duration-200 cursor-pointer hover:text-base;
+}
+
+.accordion-icon {
+  @apply w-5 h-5 transform transition-transform duration-300 ease-in-out;
+}
+
+.accordion-content {
+  @apply overflow-hidden text-gray-600 transition-all duration-300 ease-in-out;
+}
+
+.accordion-inner {
+  @apply py-2 text-sm leading-relaxed;
+}
+
+/* Optional keyframes or overrides if needed */
+.accordion-enter {
+  @apply transition-all duration-300 ease-in-out;
+}
+.accordion-leave {
+  @apply transition-all duration-200 ease-in;
+}
+
+/* Animation for open/close */
+@keyframes accordion-down {
+  from {
+    opacity: 0;
+    transform: translateY(-0.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-0.25rem);
+  }
+}
+
+.accordion-enter {
+  animation: accordion-down 0.3s ease-out forwards;
+}
+
+.accordion-leave {
+  animation: accordion-up 0.2s ease-in forwards;
+}

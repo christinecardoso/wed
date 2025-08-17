@@ -5,4 +5,17 @@
     padding: var(--spacing-6);
     box-shadow: var(--shadow-xl);
   }
+  .module {
+    @apply p-14;
+    p {
+      @apply mb-3 leading-8 text-lg;
+    }
+    h2 + p {
+      @apply mt-4;
+    }
+  }
+
+  .heading {
+    font-family: var(--font-heading);
+  }
 }

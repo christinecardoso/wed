@@ -1,0 +1,31 @@
+<div class="accordion" x-data>
+  {{ for item of items }}
+    <div x-data="{ open: false }" class="accordion-item ">
+      <h2>
+        <button
+          @click="open = !open"
+          class="accordion-button"
+        >
+          <span>{{ item.title }}</span>
+          <svg :class="{ 'rotate-180': open }"
+            class="accordion-icon"
+            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </h2>
+      <div
+        x-show="open"
+        x-collapse
+        x-transition:enter="accordion-enter"
+        x-transition:leave="accordion-leave"
+        class="accordion-content"
+      >
+        <div class="accordion-inner">
+          <p>{{ item.content |> md }}</p>
+        </div>
+      </div>
+    </div>
+  {{ /for }}
+</div>

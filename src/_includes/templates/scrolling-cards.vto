@@ -1,0 +1,62 @@
+<style>
+  .scrolling-pin-container {
+    position: relative;
+    height: var(--pin-height, 300vh);
+  }
+
+  .scrolling-pin-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .scrolling-track {
+    display: flex;
+    gap: 2rem;
+    padding-left: 2rem;
+    will-change: transform;
+    transition: transform 0.2s ease-out;
+  }
+
+  .scrolling-card {
+    min-width: 300px;
+    background: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+  }
+
+  .scrolling-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+</style>
+
+<section
+  x-data="scrollingPinnedRow({ cards: {{ cards | json | safe }}, speedFactor: {{ speed_factor ? speed_factor : 1 }} })"
+  class="scrolling-pin-container"
+  style="--pin-height: {{ pin_height ? pin_height : 300 }}vh"
+>
+  <div class="scrolling-pin-sticky">
+    <ul
+      class="scrolling-track"
+      :style="`transform: translateX(-${scrollProgress}px)`"
+    >
+      {{ for card of cards }}
+        <li class="scrolling-card">
+          {{ if card.image }}
+            <img src="{{ card.image }}" alt="{{ card.title }}">
+          {{ /if }}
+          <h3 class="text-lg font-bold mb-1">{{ card.title }}</h3>
+          <p class="text-gray-600 text-sm">{{ card.text }}</p>
+        </li>
+      {{ /for }}
+    </ul>
+  </div>
+</section>

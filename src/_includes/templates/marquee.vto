@@ -1,0 +1,76 @@
+<style>
+  @keyframes marquee-left {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes marquee-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0%); }
+  }
+
+  .marquee-track {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-play-state: var(--marquee-play-state, running);
+  }
+
+  .marquee-container[data-hoverpause="true"]:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  .marquee-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+  }
+
+  .marquee-item img {
+/*    height: 20rem;
+    max-width: 100px;
+*/  }
+</style>
+
+<section
+  class="marquee-container relative overflow-hidden py-16 bg-white text-gray-900"
+  data-hoverpause="{{ hoverpause }}"
+>
+  {{ set chunkSize = Math.ceil(items.length / row_count) }}
+
+  {{ for rowIndex of Array(row_count).keys() }}
+    {{ set rowItems = items.slice(rowIndex * chunkSize, (rowIndex + 1) * chunkSize) }}
+    {{ set direction = rowIndex % 2 === 0 ? 'left' : 'right' }}
+
+    <div class="whitespace-nowrap mb-10">
+      <ul
+        class="marquee-track inline-flex gap-4 text-xl font-semibold"
+        style="--marquee-play-state: running; animation: marquee-{{ direction }} {{ speed }} linear infinite;"
+      >
+        {{ for item of rowItems }}
+          {{ set label = typeof item === "string" ? item : item.name }}
+          {{ set image = typeof item === "object" && item.image ? item.image : null }}
+
+          <li class="marquee-item">
+            {{ if image }}
+              <img sizes="(min-width: 640px) 18rem, 11rem" transform-images="webp jpg 640" class="w-[50vw] h-auto rounded-2xl" src="{{ image }}" alt="{{ label }}" loading="lazy" />
+            {{ /if }}
+            {{ label }}
+          </li>
+        {{ /for }}
+
+        {{ for item of rowItems }}
+          {{ set label = typeof item === "string" ? item : item.name }}
+          {{ set image = typeof item === "object" && item.image ? item.image : null }}
+
+          <li class="marquee-item">
+            {{ if image }}
+              <img sizes="(min-width: 640px) 18rem, 11rem" transform-images="webp jpg 640" class="w-[50vw] h-auto rounded-2xl" src="{{ image }}" alt="{{ label }}" loading="lazy" />
+            {{ /if }}
+            {{ label }}
+          </li>
+        {{ /for }}
+      </ul>
+    </div>
+  {{ /for }}
+</section>

@@ -1,0 +1,21 @@
+<div class="testimonial-grid">
+{{ for t of testimonials }}
+  <div class="testimonial-card">
+    <div class="stars">
+      {{ for i of [1, 2, 3, 4, 5] }}
+        <span class="material-icons">★</span>
+      {{ /for }}
+    </div>
+    <p class="quote">“{{ t.quote }}”</p>
+    <p class="source">— {{ t.source }}</p>
+  </div>
+{{ /for }}
+</div>
+
+{{ if cta }}
+<div class="testimonial-cta">
+  <a href="{{ cta.href }}" target="_blank" rel="noopener noreferrer">
+    {{ cta.text }}
+  </a>
+</div>
+{{ /if }}

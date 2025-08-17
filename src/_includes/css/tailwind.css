@@ -1,0 +1,68 @@
+/*@import "tailwindcss";*/
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+
+
+@theme {
+  /* Fonts */
+/*  --font-sans: -apple-system, BlinkMacSystemFont, "avenir next", avenir, "segoe ui",
+    "helvetica neue", Cantarell, Ubuntu, roboto, noto, helvetica, arial, sans-serif;
+  --font-serif: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman",
+    "Droid Serif", Times, "Source Serif Pro", serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-mono: Menlo, Consolas, Monaco, "Liberation Mono", "Lucida Console", monospace;
+*/  
+
+  --font-sig: "Cedarville Cursive", "Petit Formal Script", cursive;
+  --font-display: "Fraunces", serif;
+  --font-jetset: Montserrat, Helvetica, Arial, Lucida, sans-serif;
+  --font-sans: Inter, Helvetica, Arial, Lucida, sans-serif;
+  --font-brand:"Mulish", sans-serif;
+
+  /* Breakpoints */
+  --breakpoint-3xl: 120rem;
+
+  /* Colors */
+  --color-accent-light: #d5cab9;
+  --color-accent: #48648d;
+  --color-accent-dark: #40537D;
+
+  --color-body: #2d6f6d;
+  --color-leaf: #6b9c58;
+  --color-root: #8ba16e;
+  --color-header: #48648d;
+  --color-jetset: #fafafa;
+  --color-text: #333333;
+  --color-base: #333333;
+  --color-line: #e0e0e0;
+  --color-dark: #e0e0e0;
+
+  /* Optional semantic variables (can be aliased in components) */
+  --accent-light: var(--color-accent-light);
+  --accent: var(--color-accent);
+  --accent-dark: var(--color-accent-dark);
+  --border-accent-light: var(--color-accent-dark);
+  --header: var(--color-accent);
+}
+
+.cedarville-cursive-regular {
+  font-family: "Cedarville Cursive", cursive;
+  font-weight: 400;
+  font-style: normal;
+  > * {
+    font-family: "Cedarville Cursive", cursive;
+  font-weight: 400;
+  font-style: normal;
+  
+  }
+}
+
+@layer components {
+  .btn-cta {
+    @apply inline-block px-6 py-3 rounded-full font-semibold border border-gray-900 hover:bg-gray-900 hover:text-white transition;
+  }
+}
+

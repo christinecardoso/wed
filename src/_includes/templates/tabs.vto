@@ -1,0 +1,40 @@
+{{ if tabs.length > 0 }}
+  <div x-data="{ tab: '{{ tabs[0].key }}', sm: window.matchMedia('(min-width: 640px)').matches }"
+       x-init="window.addEventListener('resize', () => sm = window.matchMedia('(min-width: 640px)').matches)"
+       class="grid grid-cols-1 sm:grid-cols-3 gap-0 max-w-[90vw] mx-auto items-center pb-15 md:py-15"
+  >
+
+    <!-- Tab Buttons (optional: hide on small screens) -->
+    <div class="flex sm:flex-col flex-wrap" :class="{ 'hidden': !sm }">
+      {{ for option of tabs }}
+        <button
+          @click="tab = '{{ option.key }}'"
+          :class="tab === '{{ option.key }}' ? 'text-sage hover:text-sage' : ' text-forest'"
+          class="px-4 py-2 hover:cursor-pointer text-2xl lg:text-3xl leading-7 md:py-5 hover:text-cta text-left w-full font-serif transition"
+        >
+          {{ option.label }}
+        </button>
+      {{ /for }}
+    </div>
+
+    <!-- Tab Panels -->
+    <div class="sm:col-span-2 space-y-6 bg-ivory border rounded-2xl px-10 relative">
+      <div class="absolute bg-heart text-white p-2 uppercase text-sm right-10">What You Get</div>
+
+      {{ for panel of tabs }}
+        <div
+          x-show="sm ? tab === '{{ panel.key }}' : true"
+          x-transition
+          x-cloak
+        >
+          <h3 class="text-2xl font-semibold pt-5 mb-4 font-serif">{{ panel.heading }}</h3>
+          <ul class="space-y-2 list-disc list-inside text-gray-700 mb-10">
+            {{ for item of panel.items }}
+              <li>{{ item }}</li>
+            {{ /for }}
+          </ul>
+        </div>
+      {{ /for }}
+    </div>
+  </div>
+{{ /if }}

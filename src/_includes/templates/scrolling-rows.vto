@@ -1,0 +1,19 @@
+<section x-data="scrollingRows" class="relative overflow-hidden py-32 bg-white">
+  {{ set chunkSize = Math.ceil(items.length / rowCount) }}
+
+  {{ for rowIndex of Array(rowCount).keys() }}
+    {{ set rowItems = items.slice(rowIndex * chunkSize, (rowIndex + 1) * chunkSize) }}
+
+    <ul
+      class="flex gap-10 text-xl font-semibold whitespace-nowrap will-change-transform transition-transform duration-300 ease-out mb-12"
+      :style="'transform: translateX(' + (scrollY * {{ rowIndex % 2 === 0 ? '-' : '' }}0.{{ rowIndex + 2 }}) + 'px)'"
+    >
+      {{ for name of rowItems }}
+        <li>{{ name }}</li>
+      {{ /for }}
+      {{ for name of rowItems }}
+        <li>{{ name }}</li> <!-- duplicated for seamless scroll -->
+      {{ /for }}
+    </ul>
+  {{ /for }}
+</section>

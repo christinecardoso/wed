@@ -1,0 +1,8 @@
+@layer components {
+  .card {
+    background-color: var(--color-sky-300);
+    border-radius: var(--rounded-lg);
+    padding: var(--spacing-6);
+    box-shadow: var(--shadow-xl);
+  }
+}

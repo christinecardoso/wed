@@ -1,0 +1,42 @@
+<!doctype html>
+
+<html lang="{{ it.lang }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ metas.description || 'Your default site description' }}">
+    <meta name="robots" content="index, follow">
+    <title>{{ it.title || metas.title }} - {{ metas.site }}</title>
+
+    <meta name="supported-color-schemes" content="light dark">
+    <meta name="theme-color" content="hsl(220, 20%, 100%)" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="hsl(220, 20%, 10%)" media="(prefers-color-scheme: dark)">
+    
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="{{ metas.site }}">
+    <link rel="alternate" href="/feed.json" type="application/json" title="{{ metas.site }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="canonical" href="{{ url |> url(true) }}">
+    <script src="/js/main.js" type="module"></script>
+    {{ it.extra_head?.join("\n") }}
+  </head>
+  <body class="{{ it.bodyClass }} body-{{ it.title |> slugify }}">
+    {{ include "partials/nav.vto" }}
+
+    <main class="{{ it.bodyClass }}">
+      {{ content }}
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer footer-page text-sm py-6">
+      {{ include "partials/footerNav.vto" }}
+      {{ include "partials/footerBar.vto" }}
+    </footer>
+
+    <script type="application/ld+json">
+      {{ JSON.stringify(schema, null, 3) }}
+    </script>
+
+    <!-- Current page: {{ url }} -->
+  </body>
+</html>

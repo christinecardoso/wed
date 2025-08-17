@@ -9,6 +9,7 @@
 @import "css/post.css";
 @import "css/theme.css";
 @import "css/comments.css";
+@import "css/accordion.css";
 
 /* Make the links black */
 :root {

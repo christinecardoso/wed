@@ -2,8 +2,22 @@
 title: Module 1
 date created: Thursday, April 3rd 2025, 11:33:26 am
 date modified: Thursday, April 3rd 2025, 11:33:32 am
+wrapper: "font-serif text-center"
 ---
 
-<div>
-This is a module
-</div>
+
+DEVONNE & JOE{.font-bold .text-5xl .leading-18 .tracking-widest .text-heart}
+
+invite you to join them for their wedding{.font-brand .text-heart .text-2xl}
+
+on
+
+SATURDAY{.tracking-widest .font-semibold .text-xl}
+
+01.10.26{.tracking-widest .font-bold .text-3xl}
+
+at 
+
+Hidden Address{.tracking-widest .text-xl}
+
+ST. AUGUSTINE, FLORIDA{.tracking-widest .font-bold }

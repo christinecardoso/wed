@@ -13,8 +13,8 @@ templateEngine: [vto]
 
 <section class="funnelList">
   {{ for post of search.pages("type=funnel", "order url", 12) }}
-  <div class="module {{ post.title |> slugify }}">
-    <div class="wrapper">
+  <div class="module {{ post.title |> slugify }} {{ if post.class }} {{ post.class }}{{ /if }}">
+    <div class="wrapper {{ if post.wrapper }} {{ post.wrapper }}{{ /if }}">
       {{- post.content |> md -}}
       {{ if post.accordionItems }}
         {{ include "templates/accordion.vto" { items: post.accordionItems } }}

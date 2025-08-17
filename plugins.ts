@@ -15,7 +15,6 @@ import toc from "https://deno.land/x/lume_markdown_plugins@v0.9.0/toc.ts";
 import image from "https://deno.land/x/lume_markdown_plugins@v0.9.0/image.ts";
 import footnotes from "https://deno.land/x/lume_markdown_plugins@v0.9.0/footnotes.ts";
 import { alert } from "npm:@mdit/plugin-alert@0.22.0";
-
 import picture from "lume/plugins/picture.ts";
 import transformImages from "lume/plugins/transform_images.ts";
 import wikilinks from "https://deno.land/x/lume_markdown_plugins/wikilinks.ts";
@@ -30,6 +29,7 @@ import simpleIcons from "https://deno.land/x/lume_icon_plugins@v0.1.1/simpleicon
 import markdownItAnchor from 'npm:markdown-it-anchor';
 import svgo from "lume/plugins/svgo.ts";
 import inline from "lume/plugins/inline.ts";
+import googleFonts from "lume/plugins/google_fonts.ts";
 
 import "lume/types.ts";
 
@@ -81,6 +81,29 @@ export default function (userOptions?: Options) {
           },
           plugins: [typography],
         },
+      }))
+      .use(googleFonts({
+        fonts: [
+          // Your original pairing
+          "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900",
+          "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900",
+
+          // Pair 1: Inter + Cormorant Garamond (modern + romantic)
+          "https://fonts.googleapis.com/css2?family=Inter:wght@100..900",
+          "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700",
+
+          // Pair 2: IBM Plex Sans + Libre Baskerville (clean + readable)
+          "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700",
+          "https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;1,400",
+
+          // Pair 3: Space Grotesk + Crimson Pro (bold + soft classic)
+          "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700",
+          "https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900",
+
+          // Pair 4: Work Sans + Lora (geometric + warm)
+          "https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900",
+          "https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700"
+        ],
       }))
       .use(postcss())
       .use(basePath())

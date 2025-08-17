@@ -42,10 +42,11 @@ nav.navbarTop {
 
 .navbar-home {
   text-decoration: none;
-  @apply text-base hover:text-base/60;
+  @apply text-heart hover:text-heart/60;
 
   strong {
-    @apply font-brand leading-4 uppercase font-bold text-lg;
-  }
-
+    @apply leading-4 font-brand text-4xl;
+/*    font-weight: 400;
+    font-style: normal;
+*/  }
 }

@@ -28,7 +28,10 @@
       "tags": [
         "recommended"
       ]
-    }
+    },
+    "plugins": [
+      "https://deno.land/x/lume@v3.0.6/lint.ts"
+    ]
   },
   "fmt": {
     "exclude": [

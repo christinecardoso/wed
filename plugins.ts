@@ -1,5 +1,4 @@
 import date, { Options as DateOptions } from "lume/plugins/date.ts";
-import postcss from "lume/plugins/postcss.ts";
 import terser from "lume/plugins/terser.ts";
 import prism, { Options as PrismOptions } from "lume/plugins/prism.ts";
 import basePath from "lume/plugins/base_path.ts";
@@ -86,7 +85,6 @@ export default function (userOptions?: Options) {
           "Cormorant Garamond": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700"
         },
       }))
-      .use(postcss())
       .use(basePath())
       .use(toc())
       .use(prism(options.prism))

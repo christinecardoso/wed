@@ -1,6 +1,6 @@
 [build]
   publish = "_site"
-  command = "deno task cache:reload && deno task build"
+  command = "deno task build"
 
 [build.environment]
   TAILWIND_DISABLE_OXIDE = "1"

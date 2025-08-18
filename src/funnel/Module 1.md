@@ -2,22 +2,38 @@
 title: Module 1
 date created: Thursday, April 3rd 2025, 11:33:26 am
 date modified: Thursday, April 3rd 2025, 11:33:32 am
-wrapper: "font-serif text-center"
+wrapper: "relative font-serif text-center"
+class: "px-0"
+ticker:
+  speed: "40"
+  gap: "0"
+  height: "360"
+  direction: "left"
+  overlay: "we're getting married"
+scroller:
+  - image: "/uploads/devy_1739726825_3569409782139553118_454690.jpg"
+    alt: "Luxe neutrals, new arrivals"
+    heading: "The New Neutrals"
+    subheading: "Cozy textures. Elevated basics."
+    cta: { label: "Shop Now", href: "/collections/new" }
+  - image: "/uploads/devy_1739726825_3569409782147794883_454690.jpg"
+    alt: "Weekend edit"
+    heading: "Weekend Edit"
+    subheading: "Soft knits and easy layers"
+    cta: { label: "Explore", href: "/collections/weekend" }
+  - image: "/uploads/devy_1739726825_3569409782147951351_454690.jpg"
+    alt: "Seasonal essentials"
+    heading: "Seasonal Essentials"
+    subheading: "Ready for anything"
+    cta: { label: "See the Lookbook", href: "/lookbook" }
+  - image: "/uploads/devy_1739726826_3569409782231663651_454690.jpg"
+    alt: "Seasonal essentials"
+    heading: "Seasonal Essentials"
+    subheading: "Ready for anything"
+    cta: { label: "See the Lookbook", href: "/lookbook" }
+  - image: "/uploads/devy_1739726826_3569409782315733716_454690.jpg"
+    alt: "Seasonal essentials"
+    heading: "Seasonal Essentials"
+    subheading: "Ready for anything"
+    cta: { label: "See the Lookbook", href: "/lookbook" }
 ---
-
-
-DEVONNE & JOE{.font-bold .text-5xl .leading-18 .tracking-widest .text-heart}
-
-invite you to join them for their wedding{.font-brand .text-heart .text-2xl}
-
-on
-
-SATURDAY{.tracking-widest .font-semibold .text-xl}
-
-01.10.26{.tracking-widest .font-bold .text-3xl}
-
-at 
-
-Hidden Address{.tracking-widest .text-xl}
-
-ST. AUGUSTINE, FLORIDA{.tracking-widest .font-bold }

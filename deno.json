@@ -2,10 +2,15 @@
   "imports": {
     "lume/": "https://deno.land/x/lume@v3.0.4/",
     "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@0.12.0/",
-    "lume/jsx-runtime": "https://deno.land/x/ssx@v0.1.10/jsx-runtime.ts"
+    "lume/jsx-runtime": "https://deno.land/x/ssx@v0.1.10/jsx-runtime.ts",
+    "v8": "node:v8"
   },
+  "nodeModulesDir": "auto",
   "tasks": {
-    "lume": "echo \"import 'lume/cli.ts'\" | deno run -A -",
+    "cache": "deno cache --node-modules-dir --allow-scripts=npm:@tailwindcss/oxide,npm:sharp lume/cli.ts plugins.ts",
+    "cache:reload": "deno cache --reload --node-modules-dir --allow-scripts=npm:@tailwindcss/oxide,npm:sharp lume/cli.ts plugins.ts",
+
+    "lume": "echo \"import 'lume/cli.ts'\" | deno run -A --node-modules-dir --allow-scripts=npm:@tailwindcss/oxide,npm:sharp -",
     "build": "deno task lume",
     "serve": "deno task lume -s",
     "update-deps": "deno run -A --quiet 'https://deno.land/x/nudd@v0.2.10/cli.ts' update plugins.ts deno.json",

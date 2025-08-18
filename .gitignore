@@ -6,3 +6,4 @@ deno.lock
 .obsidian
 src/posts/posts
 _cache
+node_modules

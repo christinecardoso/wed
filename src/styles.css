@@ -12,6 +12,7 @@
 @import "css/theme.css";
 @import "css/comments.css";
 @import "css/accordion.css";
+@import "css/scroller.css";
 
 /* Make the links black */
 :root {
@@ -21,9 +22,9 @@
 
 /* Page layout */
 main {
-  padding: var(--row-gap-medium) 0;
+/*  padding: var(--row-gap-medium) 0;
   max-width: min(100% - 15vw, 45em);
-  margin: 0 auto;
+*/  margin: 0 auto;
 
   & > :first-child {
     margin-top: 0;

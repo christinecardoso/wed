@@ -1,3 +1,6 @@
 [build]
   publish = "_site"
   command = "deno task build"
+
+[build.environment]
+  DENO_VERSION = "3.0.6"

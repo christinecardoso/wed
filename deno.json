@@ -5,7 +5,8 @@
     "lume/jsx-runtime": "https://deno.land/x/ssx@v0.1.12/jsx-runtime.ts"
   },
   "tasks": {
-    "lume": "echo \"import 'lume/cli.ts'\" | deno run -A -",
+    // "lume": "echo \"import 'lume/cli.ts'\" | deno run -A -",
+    "lume": "deno eval --reload \"import 'lume/cli.ts'\" --",
     "build": "deno task lume",
     "serve": "deno task lume -s",
     "lup": "deno task lume upgrade",

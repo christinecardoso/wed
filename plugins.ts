@@ -115,12 +115,12 @@ export default function (userOptions?: Options) {
       });
 
     // Alert plugin
-    site.hooks.addMarkdownItPlugin(alert);
-    site.hooks.addMarkdownItPlugin(attrs); // for {.class} support
-    for (const type of ["div", "tip", "warning", "info", "note"]) {
-      site.hooks.addMarkdownItPlugin(markdownItContainer, type);
-    }
-    site.hooks.addMarkdownItPlugin(markdownItAnchor);
+    // site.hooks.addMarkdownItPlugin(alert);
+    // site.hooks.addMarkdownItPlugin(attrs); // for {.class} support
+    // for (const type of ["div", "tip", "warning", "info", "note"]) {
+    //   site.hooks.addMarkdownItPlugin(markdownItContainer, type);
+    // }
+    // site.hooks.addMarkdownItPlugin(markdownItAnchor);
 
     // Mastodon comment system
     site.remoteFile(

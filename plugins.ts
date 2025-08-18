@@ -27,7 +27,7 @@ import icons from "lume/plugins/icons.ts";
 import typography from "npm:@tailwindcss/typography";
 import simpleIcons from "https://deno.land/x/lume_icon_plugins@v0.1.1/simpleicons.ts";
 import markdownItAnchor from 'npm:markdown-it-anchor';
-import inline from "lume/plugins/inline.ts";
+// import inline from "lume/plugins/inline.ts";
 import googleFonts from "lume/plugins/google_fonts.ts";
 
 import "lume/types.ts";
@@ -146,7 +146,7 @@ export default function (userOptions?: Options) {
         },
       }))
       .use(simpleIcons())
-      .use(inline())
+      // .use(inline())
       .add("fonts")
       .add([".css"])
       .add("js")

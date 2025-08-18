@@ -4,6 +4,3 @@
   curl -fsSL https://deno.land/install.sh | sh && \
   /opt/buildhome/.deno/bin/deno task prod \
 """
-
-[build.environment]
-  TAILWIND_DISABLE_OXIDE = "1"

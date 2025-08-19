@@ -38,7 +38,7 @@
           {{ if imgSrc }}
           <li class="scroller__item">
             {{ if s && s.href }}<a href="{{ s.href }}" class="block focus:outline-none focus:ring">{{ /if }}
-              <img src="{{ imgSrc }}" alt="{{ imgAlt }}" loading="lazy" decoding="async"
+              <img src="{{ imgSrc }}" transform-images="jpg 300" alt="{{ imgAlt }}" loading="lazy" decoding="async"
                    class="grayscale-80 block h-[var(--item-h)] w-auto object-cover">
             {{ if s && s.href }}</a>{{ /if }}
           </li>
@@ -55,7 +55,7 @@
           {{ if imgSrc2 }}
           <li class="scroller__item">
             {{ if s && s.href }}<a href="{{ s.href }}" class="block">{{ /if }}
-              <img src="{{ imgSrc2 }}" alt="" loading="lazy" decoding="async"
+              <img src="{{ imgSrc2 }}" transform-images="jpg 300" alt="" loading="lazy" decoding="async"
                    class="grayscale-80 block h-[var(--item-h)] w-auto object-cover" />
             {{ if s && s.href }}</a>{{ /if }}
           </li>

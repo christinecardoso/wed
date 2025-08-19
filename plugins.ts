@@ -20,6 +20,8 @@ import googleFonts from "lume/plugins/google_fonts.ts";
 import attrs from "npm:markdown-it-attrs@4.3.1";
 import markdownItContainer from "npm:markdown-it-container@4.0.0";
 import markdownItAnchor from 'npm:markdown-it-anchor@9.2.0';
+import picture from "lume/plugins/picture.ts";
+import transformImages from "lume/plugins/transform_images.ts";
 
 import "lume/types.ts";
 
@@ -100,6 +102,22 @@ export default function (userOptions?: Options) {
       .use(sitemap())
       .use(feed(options.feed))
       .use(wikilinks())
+      .use(picture(/* Options */))
+      .use(transformImages({
+        extensions: [".jpg", ".png", ".webp"], // exclude .gif
+        include: ["**/*.jpg", "**/*.png"], // Apply plugin to these patterns
+        options: {
+          // Specify output formats and sizes
+          formats: ["webp", "avif", "jpg"],
+          sizes: ['200x200', 640, 1080],  // Define the sizes you want to generate
+        },
+        functions: {
+          resizeBlur(img, size) {
+            img.resize(size, size);
+            img.blur(10);
+          },
+        },
+      }))
       .add("fonts")
       .add([".css"])
       .add("js")

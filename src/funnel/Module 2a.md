@@ -5,9 +5,9 @@ date modified: Thursday, April 3rd 2025, 11:33:32 am
 wrapper: "font-serif text-center"
 ---
 
-DEVONNE & JOE{.font-bold .text-5xl .leading-18 .tracking-widest .text-heart}
+DEVONNE & JOE{.font-bold .text-5xl .leading-10 .pb-8 .tracking-widest .text-heart}
 
-invite you to join them for their wedding{.font-brand .text-heart .text-2xl}
+invite you to join them for their wedding{.font-brand .leading-10 .text-heart .text-2xl}
 
 on
 

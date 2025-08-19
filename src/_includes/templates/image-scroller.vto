@@ -17,6 +17,14 @@
   {{ /if }}
 
   <section
+    x-data 
+    x-init="$nextTick(() => {
+      let inner = $el.querySelector('.scroller__inner');
+      inner.style.animation = 'none';
+      inner.offsetHeight; // trigger reflow
+      inner.style.animation = '';
+    })"
+
     class="scroller relative overflow-hidden"
     style="
       --gap: {{ gap }}px;

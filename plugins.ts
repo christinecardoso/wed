@@ -22,6 +22,7 @@ import markdownItContainer from "npm:markdown-it-container@4.0.0";
 import markdownItAnchor from 'npm:markdown-it-anchor@9.2.0';
 import picture from "lume/plugins/picture.ts";
 import transformImages from "lume/plugins/transform_images.ts";
+import obsidianImages from "npm:markdown-it-obsidian-images@1.0.1";
 
 import "lume/types.ts";
 
@@ -131,6 +132,7 @@ export default function (userOptions?: Options) {
           )[0];
         }
       });
+    site.hooks.addMarkdownItPlugin(obsidianImages, { relativeBaseURL: '/uploads/' });
 
     // Alert plugin
     // site.hooks.addMarkdownItPlugin(alert);

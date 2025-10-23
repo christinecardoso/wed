@@ -6,11 +6,12 @@ import collapse from "https://esm.sh/@alpinejs/collapse";
 window.Alpine = Alpine;
 Alpine.plugin(collapse);
 
+// Custom comment element + Alpine start
 customElements.define("mastodon-comments", Comments);
 
 Alpine.start();
 
-// Wait for DOM to be ready before running UI scripts
+// DOMContentLoaded - Wait for DOM to be ready before running UI scripts
 document.addEventListener("DOMContentLoaded", () => {
 
   // Navbar scroll background toggle

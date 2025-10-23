@@ -1,8 +1,8 @@
 ---
 layout: layouts/page.vto
-title: Contact
-url: /contact/
-draft: true
+title: Travel
+url: /travel/
+draft: false
 menu:
   visible: true
   order: 2

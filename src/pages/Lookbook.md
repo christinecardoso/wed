@@ -1,8 +1,8 @@
 ---
 layout: layouts/page.vto
-title: Contact
-url: /contact/
-draft: true
+title: Lookbook
+url: /lookbook/
+draft: false
 menu:
   visible: true
   order: 2

@@ -9,7 +9,7 @@ ticker:
   gap: "0"
   height: "360"
   direction: "left"
-  overlay: "we're getting married"
+  overlay: "see you in st. augustine"
 scroller:
   - image: "/uploads/devy_1739726825_3569409782139553118_454690.jpg"
     alt: "Luxe neutrals, new arrivals"

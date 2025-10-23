@@ -67,10 +67,10 @@ nav.navbarTop {
 
 .navbar-home {
   text-decoration: none;
-  @apply text-heart hover:text-heart/60;
+  @apply text-base-light hover:text-base-light/60;
 
   strong {
-    @apply leading-4 font-brand text-4xl;
+    @apply leading-5 font-brand text-3xl;
 /*    font-weight: 400;
     font-style: normal;
 */  }

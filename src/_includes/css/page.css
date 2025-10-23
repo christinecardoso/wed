@@ -1,3 +1,7 @@
+body {
+  background: var(--color-body);
+}
+
 .page-header {
   margin-bottom: var(--row-gap-medium);
 

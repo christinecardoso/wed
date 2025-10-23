@@ -32,9 +32,12 @@
   --color-accent-light: #d5cab9;
   --color-accent: #48648d;
   --color-accent-dark: #40537D;
+  --color-base-light: #b7b7b7;
 
-  --color-body: #fff;
-  --color-leaf: #6b9c58;
+  --color-body: #6E6E5C; 
+  --color-dark-green: #717769;
+  --color-grey-green: #8F8272;
+  --color-leaf: #717769;
   --color-root: #8ba16e;
   --color-header: #48648d;
   --color-jetset: #fafafa;
@@ -43,10 +46,12 @@
   --color-line: #e0e0e0;
   --color-dark: #e0e0e0;
   --color-heart: #8B0000;
-
+  --color-main: #fff;
+  --color-accent: var(--color-dark-green);
+  --color-slideshow: #fff;
   /* Optional semantic variables (can be aliased in components) */
   --accent-light: var(--color-accent-light);
-  --accent: var(--color-accent);
+  --accent: #E0E3DC;
   --accent-dark: var(--color-accent-dark);
   --border-accent-light: var(--color-accent-dark);
   --header: var(--color-accent);

@@ -12,7 +12,7 @@
 
   {{ if overlay }}
   <div class="absolute inset-0 z-20 grid place-items-center pointer-events-none">
-    <h2 class="font-brand text-heart text-5xl md:text-6xl lg:text-8xl px-4 drop-shadow-sm">{{ overlay }}</h2>
+    <h2 class="font-brand text-slideshow text-5xl md:text-6xl lg:text-7xl px-4 drop-shadow-sm">{{ overlay }}</h2>
   </div>
   {{ /if }}
 
@@ -47,7 +47,7 @@
           <li class="scroller__item">
             {{ if s && s.href }}<a href="{{ s.href }}" class="block focus:outline-none focus:ring">{{ /if }}
               <img src="{{ imgSrc }}" transform-images="jpg 300" alt="{{ imgAlt }}" loading="lazy" decoding="async"
-                   class="grayscale-80 block h-[var(--item-h)] w-auto object-cover">
+                   class="grayscale-20 block h-[var(--item-h)] w-auto object-cover">
             {{ if s && s.href }}</a>{{ /if }}
           </li>
           {{ /if }}
@@ -63,8 +63,7 @@
           {{ if imgSrc2 }}
           <li class="scroller__item">
             {{ if s && s.href }}<a href="{{ s.href }}" class="block">{{ /if }}
-              <img src="{{ imgSrc2 }}" transform-images="jpg 300" alt="" loading="lazy" decoding="async"
-                   class="grayscale-80 block h-[var(--item-h)] w-auto object-cover" />
+              <img src="{{ imgSrc2 }}" transform-images="jpg 300" alt="" loading="lazy" decoding="async" class="grayscale-20 block h-[var(--item-h)] w-auto object-cover" />
             {{ if s && s.href }}</a>{{ /if }}
           </li>
           {{ /if }}
